@@ -1,4 +1,4 @@
-# Copyright (C) 2023 ExtremeXT - All Rights Reserved
+# Copyright © 2023 ExtremeXT. Licensed under the GNU Affero General Public License v3.0. See LICENSE for details. 
 
 import requests
 import base64
