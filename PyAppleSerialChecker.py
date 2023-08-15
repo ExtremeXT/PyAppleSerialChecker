@@ -1,8 +1,8 @@
-# Copyright © 2023 ExtremeXT. Licensed under the GNU Affero General Public License v3.0. See LICENSE for details. 
+# Copyright © 2023 ExtremeXT. Licensed under the GNU Affero General Public License v3.0. See LICENSE for details.
 
-import requests
 import base64
 import json
+import requests
 
 serial_number = input("Input the serial number: ")
 
@@ -22,7 +22,12 @@ except KeyError:
 
 # Get captcha in base64
 url = "https://checkcoverage.apple.com/api/v1/facade/captcha?type=image"
-headers = {"X-Apple-Auth-Token": auth_token, "User-Agent": user_agent, "Accept": "application/json"} # Set the accept type as json to get the base64 encoded captcha
+headers = {
+    "X-Apple-Auth-Token": auth_token,
+    "User-Agent": user_agent,
+    # Set the accept type as json to get the base64 encoded captcha properly
+    "Accept": "application/json",
+}
 response = requests.get(url, headers=headers)
 captcha = base64.b64decode(json.loads(response.content)["binaryValue"])
 
@@ -35,7 +40,11 @@ captcha_answer = input("Input the captcha answer: ")
 # Get serial status
 url = "https://checkcoverage.apple.com/api/v1/facade/coverage"
 headers = {"X-Apple-Auth-Token": auth_token, "User-Agent": user_agent}
-json = {"captchaAnswer": captcha_answer, "captchaType": "image", "serialNumber": serial_number}
+json = {
+    "captchaAnswer": captcha_answer,
+    "captchaType": "image",
+    "serialNumber": serial_number,
+}
 response = requests.post(url, headers=headers, json=json)
 
 if b"Sorry. The code you entered doesn" in response.content:
