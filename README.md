@@ -1,4 +1,4 @@
-# PyAppleSerialChecker
+# PyAppleSerialChecker ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ExtremeXT/PyAppleSerialChecker/workflow.yml?branch=main&logo=github&style=for-the-badge)
 
 Python script that automatically checks the status of a serial number on Apple's Check Device Coverage website using GET/POST requests.
 
@@ -12,3 +12,5 @@ The PyAppleSerialChecker project is licensed under the GNU Affero General Public
 4. Input the serial number you want to check
 5. Open the `captcha.png` file created by the script and input the solution
 6. Enjoy!
+
+Hint: use `pip3` and `python3` on Linux/macOS operating systems.
